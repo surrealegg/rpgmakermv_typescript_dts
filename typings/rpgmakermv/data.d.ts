@@ -1,16 +1,3 @@
-/**
- * jsonで保存されている段階のデータ型
- *
- * metaキーを除いたものになります。
- *
- * @example
- * type IJsonDataState = JsonDataOf<IDataState>;
- */
-declare type JsonDataOf<T> = Pick<
-  T,
-  ({ [P in keyof T]: P } & { [P in "meta"]: never })[keyof T]
->;
-
 /** "id"をもつデータ */
 declare interface IHasId {
   /** ID */
