@@ -5,6 +5,9 @@ declare class Scene_Base extends Stage {
   _fadeSprite: ScreenSprite;
   _windowLayer: WindowLayer;
   _spriteset: Spriteset_Base;
+  _mapLoaded: boolean;
+  _messageWindow: Window_Message;
+  _isTeleporting: boolean;
 
   constructor();
   initialize(): void;

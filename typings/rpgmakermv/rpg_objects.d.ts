@@ -12,6 +12,9 @@ declare class Game_Temp {
   destinationX(): number;
   destinationY(): number;
 
+  _previousTeleportX: number;
+  _previousTeleportY: number;
+  _previousTeleportMap: number;
   _isPlaytest: boolean;
   _commonEventId: number;
   _destinationX: number;
@@ -175,7 +178,7 @@ declare class Game_Variables {
   initialize(): void;
   clear(): void;
   value(variableId: number): number;
-  setValue(variableId: number, value: number): number;
+  setValue(variableId: number, value: number | string): number;
   onChange(): void;
 
   _data: number[];
@@ -1014,7 +1017,9 @@ declare class Game_Enemy extends Game_Battler {
   _screenX: number;
   _screenY: number;
 
-  constructor();
+  constructor(id: number, x: number, y: number);
+  setTroopId(id: number): void;
+  setTroopMemberId(id: number): void;
   initialize(): void;
   initialize(enemyId: number, x: number, y: number): void;
   initMembers(): void;
@@ -1193,6 +1198,7 @@ declare class Game_Troop extends Game_Unit {
   _interpreter: Game_Interpreter;
   _turnCount: number;
   _enemies: Game_Enemy[];
+  _newEnemies: Game_Enemy[];
   _troopId: number;
   _eventFlags: { [key: number]: boolean };
   _namesCount: { [key: string]: number };
@@ -1216,6 +1222,12 @@ declare class Game_Troop extends Game_Unit {
   goldTotal(): number;
   goldRate(): number;
   makeDropItems(): IDataItem[];
+  addTroopReinforcements(id: number): void;
+  addTroopReinforcementsWithRelativePosition(
+    id: number,
+    x: number,
+    y: number
+  ): void;
 }
 
 declare class Game_Map {

@@ -629,6 +629,7 @@ declare class Graphics {
   static boxHeight: number;
   static scale: number;
 
+  static printFullError(name: string, message: string, stack: string): void;
   static initialize(width: number, height: number, type: string): void;
   static tickStart(): void;
   static tickEnd(): void;
@@ -667,7 +668,7 @@ declare class Graphics {
   static _scale: number;
   static _realScale: number;
   static _errorShowed: boolean;
-  static _errorPrinter: HTMLParagraphElement;
+  static _errorPrinter: HTMLParagraphElement | null;
   static _canvas: HTMLCanvasElement;
   static _video: HTMLVideoElement;
   static _videoUnlocked: boolean;
