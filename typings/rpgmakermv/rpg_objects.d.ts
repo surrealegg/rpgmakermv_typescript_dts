@@ -869,6 +869,7 @@ declare class Game_Actor extends Game_Battler {
   _battlerName: string;
   _exp: { [key: number]: number };
   _skills: number[];
+  _equippedSkills: number[];
   _equips: Game_Item[];
   _actionInputIndex: number;
   _lastMenuSkill: Game_Item;
