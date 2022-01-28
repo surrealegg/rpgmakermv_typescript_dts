@@ -1124,6 +1124,7 @@ declare class BattleManager {
   static _escaped: boolean;
   static _rewards: IDataRewards;
 
+  static processRetry(): void;
   static refreshEnemyReinforcements(): void;
   static setup(troopId: number, canEscape: boolean, canLose: boolean): void;
   static initMembers(): void;
